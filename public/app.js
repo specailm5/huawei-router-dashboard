@@ -90,8 +90,8 @@ const STORE_KEY = "huawei-dashboard";
 
 async function loadSaved() {
   try {
-    const saved = await chrome.storage.local.get(STORE_KEY);
-    return saved[STORE_KEY] || null;
+    const raw = localStorage.getItem(STORE_KEY);
+    return raw ? JSON.parse(raw) : null;
   } catch (err) {
     return null;
   }
@@ -99,7 +99,7 @@ async function loadSaved() {
 
 async function saveSettings(value) {
   try {
-    await chrome.storage.local.set({ [STORE_KEY]: value });
+    localStorage.setItem(STORE_KEY, JSON.stringify(value));
   } catch (err) {
     /* storage unavailable; the page still works for this visit */
   }
@@ -107,7 +107,7 @@ async function saveSettings(value) {
 
 async function clearSaved() {
   try {
-    await chrome.storage.local.remove(STORE_KEY);
+    localStorage.removeItem(STORE_KEY);
   } catch (err) {
     /* nothing to clear */
   }

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Minimal Huawei router client for the browser.
  *
  * A page served from a normal origin cannot call the router: it sends no CORS
@@ -21,7 +21,7 @@ const router = (() => {
   const DEFAULT_ADDRESS = "http://192.168.8.1";
 
   const state = {
-    base: DEFAULT_ADDRESS,
+    router: DEFAULT_ADDRESS,
     token: null,
     username: "",
     signedIn: false,
@@ -43,9 +43,9 @@ const router = (() => {
   }
 
   function setAddress(value) {
-    state.base = normalizeAddress(value);
+    state.router = normalizeAddress(value);
     reset();
-    return state.base;
+    return state.router;
   }
 
   function reset() {
@@ -83,8 +83,8 @@ const router = (() => {
     if (doc.querySelector("parsererror")) return null;
     const root = doc.documentElement;
     const value = elementToValue(root);
-    // Most routers wrap errors as <response><error>…</error></response>, but
-    // some answer with <error> as the root. Normalise both to { error: … }.
+    // Most routers wrap errors as <response><error>â€¦</error></response>, but
+    // some answer with <error> as the root. Normalise both to { error: â€¦ }.
     return root.nodeName === "error" ? { error: value } : value;
   }
 
@@ -104,22 +104,21 @@ const router = (() => {
 
   async function call(path, options = {}) {
     const { method = "GET", body = null } = options;
-    const headers = {};
+    const headers = { "X-Router": state.router };
     if (state.token) headers["__RequestVerificationToken"] = state.token;
     if (body) headers["Content-Type"] = "application/xml";
 
     let response;
     try {
-      response = await fetch(`${state.base}/api/${path}`, {
+      response = await fetch(`/router/api/${path}`, {
         method,
         headers,
         body,
-        credentials: "include",
         cache: "no-store",
       });
     } catch (err) {
       throw new RouterError(
-        `Cannot reach the router at ${state.base}. Check the address and that this computer is on its network.`
+        `Cannot reach the router at ${state.router}. Check the address and that this computer is on its network.`
       );
     }
 
@@ -212,7 +211,7 @@ const router = (() => {
     await call("user/login", { method: "POST", body });
     state.username = user;
     state.signedIn = true;
-    return { username: user, address: state.base };
+    return { username: user, address: state.router };
   }
 
   async function logout() {
@@ -291,7 +290,7 @@ const router = (() => {
   /**
    * Wi-Fi is one master switch over all radios. The router keeps the block in
    * `wlan/status-switch-settings`, so it is read, every `wifienable` flag is
-   * flipped, and the whole block is written back — the same round-trip the
+   * flipped, and the whole block is written back â€” the same round-trip the
    * Python client performs, because a payload built from scratch leaves fields
    * out and the router rejects it.
    */
@@ -355,3 +354,4 @@ const router = (() => {
     },
   };
 })();
+
