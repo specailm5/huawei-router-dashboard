@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Huawei Router Dashboard",
+  "version": "1.0.0",
+  "description": "Read and control a Huawei 4G/5G router from a local page.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1Afmvp5AeNpAg8A1wTRlLPJvib1ZoAMnhDODmtWgTrLPAYuKca5ZXtM5x9wKFnjcpyRRrndFiBC4884C2gG0+IRBes44IPujkntanQ1qmXAZvDaK9RRARFyK/D5/c2B2QhSwdmye2Na91RFcw8aqAPxbPHGTKadiGWD7osXSWlGbhZ8p7CeSXIQdYqPr8Y9i4CKZg0Mej8tJ3AsPTbDu/637kGQ2PyPCCDsQuFySz5uXkJSCIhu3Pf+/2/gtdfhBQ1jTe6mtM7gOuH/43f9ppsgdMg6LSaNLnCr3yUaPk8DK2DBcNMLICGRAQnL8Aq1VgkDJZUXBHQRyzRK6kOqKbQIDAQAB",
+  "host_permissions": ["http://*/*"],
+  "action": { "default_title": "Huawei Router Dashboard" },
+  "background": { "service_worker": "background.js" },
+  "permissions": ["storage"]
+}

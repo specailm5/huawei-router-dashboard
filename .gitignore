@@ -1,0 +1,11 @@
+# Runtime output
+*.log
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local browser profile used by the launcher, if kept in the folder
+browser-profile/

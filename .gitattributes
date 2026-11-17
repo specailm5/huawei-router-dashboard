@@ -1,0 +1,3 @@
+# Keep the launcher usable on the platform it is for.
+* text=auto
+*.bat text eol=crlf

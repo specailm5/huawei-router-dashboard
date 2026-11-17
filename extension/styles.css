@@ -1,0 +1,185 @@
+:root { color-scheme: dark; }
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 24px;
+  font: 15px/1.5 "Segoe UI", system-ui, sans-serif;
+  background: #101418;
+  color: #e6edf3;
+}
+
+h1 { font-size: 18px; font-weight: 600; margin: 0 0 4px; }
+h2 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: #8b949e;
+  margin: 0;
+  padding: 14px 16px 0;
+  font-weight: 600;
+}
+
+.wrap { max-width: 1000px; margin: 0 auto; }
+
+.sub { color: #8b949e; font-size: 13px; margin-bottom: 16px; }
+
+nav { display: flex; gap: 8px; margin-bottom: 20px; }
+
+.tab {
+  font: inherit;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: none;
+  color: #8b949e;
+  cursor: pointer;
+}
+.tab:hover { color: #e6edf3; background: #171d23; }
+.tab.active {
+  color: #e6edf3;
+  border-color: #2b5c86;
+  background: #1d3a52;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+.tile {
+  background: #171d23;
+  border: 1px solid #232b33;
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.tile .k {
+  color: #8b949e;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.tile .v { font-size: 22px; font-weight: 600; margin-top: 4px; }
+.tile .v small { font-size: 13px; font-weight: 400; color: #8b949e; }
+
+section {
+  margin-top: 20px;
+  background: #171d23;
+  border: 1px solid #232b33;
+  border-radius: 10px;
+}
+
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+td, th {
+  padding: 8px 16px;
+  border-top: 1px solid #1e262e;
+  text-align: left;
+}
+th {
+  color: #8b949e;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  border-top: 0;
+  white-space: nowrap;
+}
+tr:first-child td { border-top: 0; }
+td.k { color: #8b949e; width: 45%; }
+td.num, th.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.scroll { overflow-x: auto; }
+
+.buttons { display: flex; flex-wrap: wrap; gap: 10px; padding: 14px 16px; }
+
+button {
+  font: inherit;
+  font-size: 14px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #2d3843;
+  background: #1f272f;
+  color: #e6edf3;
+  cursor: pointer;
+}
+button:hover:not(:disabled) { background: #26303a; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+button.primary { border-color: #2b5c86; background: #1d3a52; }
+button.primary:hover:not(:disabled) { background: #24466a; }
+button.danger { border-color: #5c2a2a; background: #2a1c1c; }
+button.danger:hover:not(:disabled) { background: #3a2323; }
+
+form { padding: 14px 16px; display: grid; gap: 10px; }
+.row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 12px;
+  align-items: center;
+}
+label { color: #8b949e; font-size: 14px; }
+input {
+  font: inherit;
+  font-size: 14px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #2d3843;
+  background: #0d1116;
+  color: #e6edf3;
+  width: 100%;
+}
+input:focus { outline: 1px solid #3b6f9e; }
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.remember {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  color: #8b949e;
+  font-size: 13px;
+}
+.remember input { width: auto; }
+
+.state { color: #8b949e; font-size: 13px; }
+.state strong { color: #e6edf3; font-weight: 600; }
+
+.note { padding: 0 16px 14px; font-size: 13px; color: #8b949e; }
+
+.empty { padding: 14px 16px; color: #8b949e; font-size: 14px; }
+.empty a { color: #6aa9dc; }
+
+.warn {
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #5c4a2a;
+  background: #241f16;
+  color: #dcc39a;
+  font-size: 14px;
+}
+.warn a { color: #e8c98f; }
+
+.pill {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  border: 1px solid #2d3843;
+  color: #8b949e;
+  margin-left: 8px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+#msg { margin-top: 16px; font-size: 14px; color: #8b949e; min-height: 20px; }
+#msg.err { color: #f0a5a5; }
+#msg.ok { color: #9fd4a5; }

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Huawei router</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Huawei router</h1>
+    <div class="sub" id="updated">starting…</div>
+    <nav>
+      <button class="tab active" data-view="overview">Overview</button>
+      <button class="tab" data-view="cells">Cells</button>
+    </nav>
+  </header>
+
+  <main id="view-overview">
+    <div class="top">
+      <div class="tile"><div class="k">Connection</div><div class="v" id="tile-connection">–</div></div>
+      <div class="tile"><div class="k">Network</div><div class="v" id="tile-network">–</div></div>
+      <div class="tile"><div class="k">Signal</div><div class="v" id="tile-signal">–</div></div>
+      <div class="tile"><div class="k">Clients</div><div class="v" id="tile-clients">–</div></div>
+    </div>
+
+    <section>
+      <h2>Router</h2>
+      <form id="connect-form" autocomplete="off">
+        <div class="row">
+          <label for="host">Address</label>
+          <input id="host" name="host" placeholder="http://192.168.8.1" spellcheck="false">
+        </div>
+        <div class="row">
+          <label for="username">Username</label>
+          <input id="username" name="username" placeholder="admin" spellcheck="false">
+        </div>
+        <div class="row">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" placeholder="router admin password">
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="primary" id="connect">Connect</button>
+          <button type="button" id="disconnect">Forget password</button>
+          <label class="remember" for="remember">
+            <input type="checkbox" id="remember" checked>
+            Remember on this computer
+          </label>
+          <span class="state" id="state"></span>
+        </div>
+      </form>
+      <div class="note">
+        Signing in lets the page show cell details and change settings. The
+        password is kept only in this browser's extension storage, and only when
+        "Remember on this computer" stays ticked.
+      </div>
+    </section>
+
+    <section>
+      <h2>Details</h2>
+      <table id="details"></table>
+      <div class="empty" id="details-empty" hidden>
+        Sign in to read the router.
+      </div>
+    </section>
+
+    <section>
+      <h2>Controls</h2>
+      <div class="buttons">
+        <button data-action="wifi-on">Turn Wi-Fi on</button>
+        <button data-action="wifi-off">Turn Wi-Fi off</button>
+        <button data-action="mobile-on">Mobile data on</button>
+        <button data-action="mobile-off">Mobile data off</button>
+        <button data-action="reconnect">Reconnect</button>
+        <button class="danger" data-action="reboot">Restart router</button>
+      </div>
+      <div class="note" id="controls-note"></div>
+    </section>
+  </main>
+
+  <main id="view-cells" hidden>
+    <div id="cells-notice"></div>
+
+    <section>
+      <h2>Serving cell</h2>
+      <table id="serving"></table>
+      <div class="empty" id="serving-empty" hidden>
+        The router did not report a serving cell.
+      </div>
+    </section>
+
+    <section id="secondary-section" hidden>
+      <h2>Secondary cells <span class="pill">carrier aggregation</span></h2>
+      <div class="scroll"><table id="secondary"></table></div>
+    </section>
+
+    <section>
+      <h2>Neighbouring cells</h2>
+      <div class="scroll"><table id="neighbours"></table></div>
+      <div class="empty" id="neighbours-empty" hidden>
+        The router did not report any neighbouring cells.
+      </div>
+    </section>
+  </main>
+
+  <div id="msg" role="status"></div>
+</div>
+
+<script src="router.js"></script>
+<script src="cells.js"></script>
+<script src="display.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
