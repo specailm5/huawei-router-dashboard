@@ -22,10 +22,13 @@ password** to remove it.
 ## What you need
 
 - Windows
-- Node.js — if it is missing, the launcher opens the download page and waits;
-  install it, then double-click the launcher again
 - A Huawei router on the same network
 - Any browser
+- An internet connection on the first run
+
+On the first run the launcher installs what the dashboard needs by itself. It
+takes a minute or two and then never happens again; there is nothing to
+download by hand.
 
 ## If it does not work
 
@@ -71,10 +74,12 @@ dashboard talks to your router and to nothing else.
 ### ما تحتاجه
 
 - حاسوب يعمل بنظام ويندوز.
-- برنامج Node.js. وإن لم يكن مثبتاً فسيعرض المشغّل صفحة تنزيله وينتظرك؛ ثبّته
-  ثم انقر على المشغّل مرة أخرى.
 - راوتر هواوي على الشبكة نفسها.
 - أي متصفح.
+- اتصال بالإنترنت في التشغيل الأول.
+
+يثبّت المشغّل في التشغيل الأول ما تحتاجه اللوحة بنفسه، ويستغرق ذلك دقيقة أو
+دقيقتين ثم لا يعود؛ فليس عليك أن تنزّل شيئاً بيدك.
 
 ### إن لم يعمل
 
